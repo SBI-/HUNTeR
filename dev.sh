@@ -1,7 +1,8 @@
 #!/bin/bash
 # devs will generally run this config file, so this is a fairly
 # safe place to do this.
-git config core.hooksPath .githooks
+# pdg: removed git hooks for now
+# git config core.hooksPath .githooks
 
 ./mvnw -f frontend/pom.xml clean install
 
