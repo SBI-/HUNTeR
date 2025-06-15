@@ -19,11 +19,11 @@ fi
 
 CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep -E "required|load"|wc -l)
 if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
-    sudo docker-compose -f docker/docker-compose.yaml build \
-    && sudo docker-compose -f docker/docker-compose.yaml up -d
+    sudo docker compose -f docker/docker-compose.yaml build \
+    && sudo docker compose -f docker/docker-compose.yaml up -d
 else
-    docker-compose -f docker/docker-compose.yaml build \
-    && docker-compose -f docker/docker-compose.yaml up -d
+    docker compose -f docker/docker-compose.yaml build \
+    && docker compose -f docker/docker-compose.yaml up -d
 fi
 
 # only start frontend if build and up worked
@@ -38,7 +38,7 @@ cd ..
 
 CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep -E "required|load"|wc -l)
 if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
-    sudo docker-compose -f docker/docker-compose.yaml down
+    sudo docker compose -f docker/docker-compose.yaml down
 else
-    docker-compose -f docker/docker-compose.yaml down
+    docker compose -f docker/docker-compose.yaml down
 fi
